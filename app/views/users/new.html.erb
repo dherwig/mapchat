@@ -1,0 +1,35 @@
+<div class="panel" id="signUpPanel">
+<%= form_for @user do |f| %>
+  <h1>Sign Up</h1>
+  <% if @user.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @user.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class = "row">
+    <div class="small-12 small-centered columns">
+      <input id="user_email" name="user[email]" type="text" placeholder="Email">
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-6 columns">
+      <input id="user_password" name="user[password]" type="password" placeholder="Password">
+    </div>
+    <div class="small-6 columns">
+      <input id="user_password_confirmation" name="user[password_confirmation]" type="password" placeholder="Password Confirmation">
+    </div>
+  </div>
+  
+  
+  <div class="row">
+    <div class="small-12 small-centered columns">
+      <input class="button expand" name="commit" type="submit" value= "Sign Up" >
+    </div>
+  </div>
+<% end %>
+</div>

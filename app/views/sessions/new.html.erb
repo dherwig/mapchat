@@ -1,0 +1,21 @@
+<div class="panel" id="logInPanel">
+<h1>Log in</h1>
+
+<%= form_tag sessions_path do %>
+  <div class="row">
+  	<div class="small-12 small-centered columns">
+  		<input id="email" name="email" type="text" placeholder="Email">
+  	</div>
+  </div>
+  <div class="row">
+  	<div class="small-12 small-centered columns">
+  		<input id="password" name="password" type="password" placeholder="Password">
+  	</div>
+  </div>
+  <div class="row">
+  	<div class="small-12 small-centered columns">
+  		<input class="button expand" name="commit" type="submit" value="Log in">
+  	</div>
+  </div>
+<% end %>
+</div>

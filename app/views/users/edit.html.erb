@@ -1,0 +1,21 @@
+<div class = "panel" id="editPhotoPanel">
+<h1> Add Picture </h1>
+<%= form_for current_user do |f| %>
+	<p>
+
+		<%= f.file_field :image %>
+
+		<div class="hide"><%= f.submit "Update Photo", id:"updatePhotoButton" %></div>
+		<a href="#" class="button round" id="updatePhoto">Send</a>
+	</p>
+
+<% end %>
+<script>
+function clickSubmit(){
+	document.getElementById('updatePhotoButton').click();
+}
+updatePhoto.addEventListener('click',clickSubmit);
+</script>
+
+</script>
+</div>

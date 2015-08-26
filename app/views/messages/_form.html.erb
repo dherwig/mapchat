@@ -1,0 +1,54 @@
+<div class="panel" id="postMessageForm">
+<div class = "row">
+<%= form_for(@message) do |f| %>
+  <% if @message.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@message.errors.count, "error") %> prohibited this message from being saved:</h2>
+
+      <ul>
+      <% @message.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <p class="hide" id="userIdShow"><%= current_user.id %></p>
+  <div class="field hide">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id, id:"userIdField" %>
+  </div>
+  <div class="field small-10 columns no-pad-right">
+    <%= f.text_field :content, placeholder:"Type Message Here..." %>
+  </div>
+  <div class="field hide">
+    <%= f.label :lat %><br>
+    <%= f.text_field :lat, id:"latField"%>
+  </div>
+  <div class="field hide">
+    <%= f.label :long %><br>
+    <%= f.text_field :long, id:"longField" %>
+  </div>
+  <div class="actions small-2 columns no-pad-left">
+    <div class="hide"><%= f.submit "Send", id:"sendMessageButton" %></div>
+    <a href="#" class="button postfix" id="sendMessage">Send</a>
+  </div>
+  <script>
+    function clickSubmit(){
+      document.getElementById('sendMessageButton').click();
+    }
+    var sendMessageAnchor = document.getElementById('sendMessage');
+    sendMessage.addEventListener("click", clickSubmit);
+    navigator.geolocation;
+    navigator.geolocation.getCurrentPosition(function(position){
+      var lat = position.coords.latitude;
+      var long = position.coords.longitude;
+      document.getElementById('latField').value = lat;
+      document.getElementById('longField').value = long;
+    });
+    var user = document.getElementById('userIdShow').innerHTML;
+    console.log(user);
+    document.getElementById('userIdField').value = user;
+  </script>
+<% end %>
+</div>
+</div>
